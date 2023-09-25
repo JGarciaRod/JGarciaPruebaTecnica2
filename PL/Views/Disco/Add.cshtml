@@ -1,0 +1,68 @@
+﻿@model MLd.Disco
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Add","Disco", FormMethod.Post, new {enctype = "multipart/form-data" }))
+            
+{
+    @Html.HiddenFor(model => model.IdDisco)
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Titulo, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.Titulo, new { @class = "coll-auto" })
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Artista, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.Artista, new { @class = "coll-auto" })
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.GeneroMusical, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.GeneroMusical, new { @class = "coll-auto" })
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Duracion, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.Duracion, new { @class = "coll-auto" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Año, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.Año, new { @class = "coll-auto" })
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Distribuidora, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.Distribuidora, new { @class = "coll-auto" })
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Ventas, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.Ventas, new { @class = "coll-auto" })
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Disponibilidad, new { @class = "hidden" })
+        @Html.TextBoxFor(model => model.Disponibilidad, new { @class = "coll-auto" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <input type="submit" data-toggle="modal" value="Guardar" class="btn btn-success" />
+    </div>
+
+    <div class="col-md-6">
+        <a class="btn btn-close" href="@Url.Action("GetAll","Disco")">Cancelar</a>
+    </div>
+</div>
+}
+

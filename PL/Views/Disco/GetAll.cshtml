@@ -1,0 +1,50 @@
+﻿@model MLd.Disco
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAll</h2>
+
+@if (Model.Discos != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <td>Titulo</td>
+                <td>Artista</td>
+                <td>Distribuidora</td>
+                <td>Ventas</td>
+                <td>Disponibilidad</td>
+                <td>Actualizar</td>
+                <td>Eliminar</td>
+            </tr>
+        </thead>
+
+        @foreach(MLd.Disco disco in Model.Discos) 
+        { 
+        <tbody>
+            <tr>
+                <td>@disco.Titulo</td>
+                <td>@disco.Artista</td> 
+                <td>@disco.Distribuidora</td> 
+                <td>@disco.Ventas</td> 
+                <td>@disco.Disponibilidad</td>
+                <td>
+                    <a class="btn btn-warning"
+                       href="@Url.Action("Add","Disco", new { idDisco = disco.IdDisco } )">
+                        Actualizar
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-secondary"
+                       href="@Url.Action("Dell","Disco", new {idDisco = disco.IdDisco} )">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+        }
+    </table>
+
+}
